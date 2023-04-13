@@ -6,8 +6,19 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class Aplikace extends JFrame {
+
+    private JLabel husyLabel;
+    private JLabel kraliciLabel;
+    private JLabel pocetHlavLabel;
+    private JLabel pocetNohouLabel;
+    private JTextField husyField;
+    private JTextField kraliciField;
+    private JTextField pocetHlavField;
+    private JTextField pocetNohouField;
+    private JButton vypocitatButton;
 
     public static void main(String[] args) {
         FlatLightLaf.setup();
@@ -32,7 +43,74 @@ public class Aplikace extends JFrame {
 
         //TODO implementovat formulář podle zadání
 
+        husyField = new JTextField();
+        husyLabel = new JLabel("Husy");
+        husyLabel.setDisplayedMnemonic('H');
+        husyLabel.setLabelFor(husyField);
+        husyField.setHorizontalAlignment(JTextField.TRAILING);
+        add(husyLabel);
+        add(husyField);
+
+        kraliciField = new JTextField();
+        kraliciLabel = new JLabel("Králíci");
+        kraliciLabel.setDisplayedMnemonic('K');
+        kraliciLabel.setLabelFor(kraliciField);
+        kraliciField.setHorizontalAlignment(JTextField.TRAILING);
+        add(kraliciLabel);
+        add(kraliciField);
+
+        add(createButtonBar(), "span");
+
+        pocetHlavField = new JTextField();
+        pocetHlavLabel = new JLabel("Počet hlav");
+        pocetHlavLabel.setDisplayedMnemonic('H');
+        pocetHlavLabel.setLabelFor(pocetHlavField);
+        pocetHlavField.setHorizontalAlignment(JTextField.TRAILING);
+        pocetHlavField.setEditable(false);
+        add(pocetHlavLabel);
+        add(pocetHlavField);
+
+        pocetNohouField = new JTextField();
+        pocetNohouLabel = new JLabel("Počet nohou");
+        pocetNohouLabel.setDisplayedMnemonic('H');
+        pocetNohouLabel.setLabelFor(pocetNohouField);
+        pocetNohouField.setHorizontalAlignment(JTextField.TRAILING);
+        pocetNohouField.setEditable(false);
+        add(pocetNohouLabel);
+        add(pocetNohouField);
+
+        getRootPane().setDefaultButton(vypocitatButton);
+
+        vypocitatButton.addActionListener(this::handleVypocitat);
+
         pack();
+    }
+
+    private JPanel createButtonBar() {
+        vypocitatButton = new JButton("Vypočítat");
+        vypocitatButton.setMnemonic('V');
+
+        JPanel buttonBar = new JPanel(new MigLayout(null, "[right, grow]"));
+        buttonBar.add(vypocitatButton);
+        return buttonBar;
+    }
+
+    private void handleVypocitat(ActionEvent actionEvent) {
+        System.out.println("Pocitam:");
+        System.out.printf("Husy: %s", husyField.getText()).println();
+        System.out.printf("Kralici: %s", kraliciField.getText()).println();
+
+        String husy = husyField;
+        int pocetHus = Integer.parseInt(husy);
+
+        String kralici = kraliciField;
+        int pocetKraliku = Integer.parseInt(kralici);
+
+        int pocetHlav = husy + kralici;
+        int pocetNohou = (husy * 2) + (kralici * 4);
+
+        System.out.printf("Počet hlav: %s", pocetHlavField.getText()).println();
+        System.out.printf("Počet nohou: %s", pocetNohouField.getText()).println();
     }
 
 }
