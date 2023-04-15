@@ -96,21 +96,16 @@ public class Aplikace extends JFrame {
     }
 
     private void handleVypocitat(ActionEvent actionEvent) {
-        System.out.println("Pocitam:");
-        System.out.printf("Husy: %s", husyField.getText()).println();
-        System.out.printf("Kralici: %s", kraliciField.getText()).println();
+        int pocetHus = Integer.parseInt(husyField.getText());
+        int pocetKraliku = Integer.parseInt(kraliciField.getText());
 
-        String husy = husyField;
-        int pocetHus = Integer.parseInt(husy);
+        int pocetHlav = pocetHus + pocetKraliku;
+        int pocetNohou = (pocetHus * 2) + (pocetKraliku * 4);
 
-        String kralici = kraliciField;
-        int pocetKraliku = Integer.parseInt(kralici);
+        String pocetHlavVypis = Integer.toString(pocetHlav);
+        String pocetNohouVypis = Integer.toString(pocetNohou);
 
-        int pocetHlav = husy + kralici;
-        int pocetNohou = (husy * 2) + (kralici * 4);
-
-        System.out.printf("Počet hlav: %s", pocetHlavField.getText()).println();
-        System.out.printf("Počet nohou: %s", pocetNohouField.getText()).println();
+        pocetHlavField.setText(pocetHlavVypis);
+        pocetNohouField.setText(pocetNohouVypis);
     }
-
 }
