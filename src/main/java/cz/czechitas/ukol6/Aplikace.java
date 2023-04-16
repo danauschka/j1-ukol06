@@ -9,7 +9,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class Aplikace extends JFrame {
-
     private JLabel husyLabel;
     private JLabel kraliciLabel;
     private JLabel pocetHlavLabel;
