@@ -40,8 +40,6 @@ public class Aplikace extends JFrame {
         setLayout(new MigLayout("wrap 2", "[right]rel[50:120:150,grow,fill]"));
         setMinimumSize(new Dimension(250, 200));
 
-        //TODO implementovat formulář podle zadání
-
         husyField = new JTextField();
         husyLabel = new JLabel("Husy");
         husyLabel.setDisplayedMnemonic('H');
@@ -62,7 +60,7 @@ public class Aplikace extends JFrame {
 
         pocetHlavField = new JTextField();
         pocetHlavLabel = new JLabel("Počet hlav");
-        pocetHlavLabel.setDisplayedMnemonic('H');
+        pocetHlavLabel.setDisplayedMnemonic('L');
         pocetHlavLabel.setLabelFor(pocetHlavField);
         pocetHlavField.setHorizontalAlignment(JTextField.TRAILING);
         pocetHlavField.setEditable(false);
@@ -71,7 +69,7 @@ public class Aplikace extends JFrame {
 
         pocetNohouField = new JTextField();
         pocetNohouLabel = new JLabel("Počet nohou");
-        pocetNohouLabel.setDisplayedMnemonic('H');
+        pocetNohouLabel.setDisplayedMnemonic('N');
         pocetNohouLabel.setLabelFor(pocetNohouField);
         pocetNohouField.setHorizontalAlignment(JTextField.TRAILING);
         pocetNohouField.setEditable(false);
